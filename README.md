@@ -11,7 +11,7 @@ pip install gunicorn
 gunicorn server:app
 ```
 ## Modules Required and how to run (Windows)
-```python
+```
 pip install falcon
 pip install waitress
 waitress-serve --port=8000 server:app
