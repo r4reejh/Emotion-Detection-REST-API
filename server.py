@@ -1,4 +1,5 @@
 import falcon
+from falcon_cors import CORS
 import argparse
 import sys, os
 sys.path.append("../")
@@ -50,7 +51,8 @@ class DetectResource(object):
         return capture
 
 
-app = falcon.API()
+cors = CORS(allow_all_origins=True)
+app = falcon.API(middleware=[cors.middleware])
 welcome = WelcomeResource()
 detect = DetectResource()
 app.add_route('/', welcome)
